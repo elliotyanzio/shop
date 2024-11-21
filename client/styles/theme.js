@@ -5,6 +5,25 @@ export const theme = {
         plum: '#600e6b',
         purpleHaze: '#a49fc8',
         siphon: '#100030',
-        sohoLights: '#f050f8'
+        sohoLights: '#f050f8',
+        grey: 'grey'
+    },
+    spacing: [
+        "4px",
+        "8px",
+        "12px",
+        "16px",
+        "20px",
+        "24px",
+        "28px",
+        "32px"
+    ],
+    fontSizes: {
+        xSmall: '12px',
+        small: '14px',
+        regular: '16px',
+        large: '20px',
+        subTitle: '24px',
+        title: '30px'
     }
 }

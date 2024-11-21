@@ -1,33 +1,37 @@
 import { useContext } from 'react'
 import Button from '../Button'
 import { ProductContext } from '../../context/useProductContext'
+import { LargeText } from '../ProductActions/ProductActions.styles'
+import { QuantityContainer, PricingCounterContainer, QuantityLabel, QuantityLabelContainer, CenterContainer } from './ProductCounter.styles'
 
 const ProductCounter = ({ productData }) => {
+
+    //TODO: Change theses to props - so it can be reusable
     const { productQuantity, setProductQuantity } = useContext(ProductContext)
     return (
         <>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '6px' }}>
-                    <p style={{ margin: '0', padding: '0', fontSize: '12px' }}>Qty</p>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+            <PricingCounterContainer>
+                <QuantityLabelContainer>
+                    <QuantityLabel>Qty</QuantityLabel>
+                </QuantityLabelContainer>
+                <CenterContainer>
                     <Button
                         onClick={() => setProductQuantity((prev) => prev - 1)}
                         disabled={productQuantity <= 1}
                     >
                         -
                     </Button>
-                    <div style={{ display: 'flex', flexDirection: 'column', margin: '0 10px' }}>
-                        <p style={{ margin: '0', padding: '0', fontWeight: '400', fontSize: '20px' }} title={'Current quantity'}>{productQuantity}</p>
-                    </div>
+                    <QuantityContainer>
+                        <LargeText title={'Current quantity'}>{productQuantity}</LargeText>
+                    </QuantityContainer>
                     <Button
                         onClick={() => setProductQuantity((prev) => prev + 1)}
                         disabled={productQuantity === productData.quantity}
                     >
                         +
                     </Button>
-                </div>
-            </div>
+                </CenterContainer>
+            </PricingCounterContainer>
         </>
     )
 }
