@@ -5,7 +5,6 @@ import { LargeText } from '../ProductActions/ProductActions.styles'
 import { QuantityContainer, PricingCounterContainer, QuantityLabel, QuantityLabelContainer, CenterContainer } from './ProductCounter.styles'
 
 const ProductCounter = ({ productData }) => {
-
     //TODO: Change theses to props - so it can be reusable
     const { productQuantity, setProductQuantity } = useContext(ProductContext)
     return (

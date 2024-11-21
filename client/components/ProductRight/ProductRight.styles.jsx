@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const ProductRightContainer = styled.div`
+    @media screen and (min-width: 768px) {
+        width: 50%;
+    }
+`
+
 export const ParagraphText = styled.p`
     font-size: ${({ theme }) => theme.fontSizes.regular};
     margin: ${({ theme }) => `${theme.spacing[1]} 0`};

@@ -1,12 +1,12 @@
 import Section from "../Section"
 import Specification from "../Specification"
 import { formatSpecifications } from './ProductRight.utils'
-import { GreyParagraphText, ParagraphText, SectionTitle, ProductTitle, SubTitleContainer } from "./ProductRight.styles"
+import { GreyParagraphText, ParagraphText, SectionTitle, ProductTitle, SubTitleContainer, ProductRightContainer } from "./ProductRight.styles"
 import ProductActions from "../ProductActions/ProductActions"
 
 const ProductRight = ({ productData }) => {
     return (
-        <div style={{}}>
+        <ProductRightContainer>
             <Section type={'primary'}>
                 <ProductTitle>{productData[0].name}</ProductTitle>
                 <SubTitleContainer>
@@ -22,7 +22,7 @@ const ProductRight = ({ productData }) => {
                 <SectionTitle>Specifications</SectionTitle>
                 <Specification specificationArr={formatSpecifications(productData[0])} />
             </Section>
-        </div>
+        </ProductRightContainer>
     )
 }
 

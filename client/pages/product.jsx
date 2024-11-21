@@ -4,6 +4,23 @@ import Section from '../components/Section'
 import ProductRight from '../components/ProductRight/ProductRight'
 import { ProductContext } from '../context/useProductContext'
 import Navbar from '../components/Navbar'
+import styled from 'styled-components'
+
+const MainContainer = styled.div`
+    margin: 0 auto;
+    max-width: 90%;
+  
+  @media screen and (max-width: 550px) {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+`
+
+const ProductContainer = styled.div`
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+`
 
 export default function Product() {
   const [productData, setProductData] = useState()
@@ -31,23 +48,19 @@ export default function Product() {
       productQuantity, setProductQuantity, basketQuantity, setBasketQuantity
     }}>
       <Navbar />
-      <div style={{ margin: '0 auto', maxWidth: '900px' }}>
+      <MainContainer>
         {productData && productData.length > 0 && (
           <>
-            <div style={{}}>
-              {/* left */}
+            <ProductContainer>
               <Section type={'primary'}>
-                <div style={{}}>
-                  <Image loader={() => productData[0].img_url} src={productData[0].img_url} height={500} width={500} style={{ borderRadius: '15px' }} />
-                </div>
+                <Image loader={() => productData[0].img_url} src={productData[0].img_url} height={500} width={500} style={{ borderRadius: '15px' }} />
               </Section>
-              {/* right */}
               <ProductRight productData={productData} productQuantity={productQuantity} />
-            </div>
+            </ProductContainer>
 
           </>
         )}
-      </div>
-    </ProductContext.Provider>
+      </MainContainer>
+    </ProductContext.Provider >
   )
 }

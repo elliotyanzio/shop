@@ -25,5 +25,11 @@ export const theme = {
         large: '20px',
         subTitle: '24px',
         title: '30px'
+    },
+    breakpoints: {
+        mobile: "320px",
+        tablet: "768px",
+        laptop: "1024px",
+        desktop: "2560px",
     }
 }
