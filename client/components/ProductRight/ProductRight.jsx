@@ -18,11 +18,12 @@ const ProductRight = ({ productData }) => {
                 </div>
                 <>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '10px' }}>
-                        <h2 style={{ fontWeight: '400' }}>£{productData[0].price}</h2>
+                        <p style={{ fontWeight: '400', fontSize: '20px', margin: '0', padding: '0' }}>£{productData[0].price}</p>
                         <ProductCounter productData={productData[0]} />
                     </div>
                     <Button
-                        width={'100%'} height={'50px'}
+                        width={'100%'}
+                        height={'50px'}
                         onClick={() => setBasketQuantity(productQuantity)}
                     >
                         <h3 style={{ padding: '0', margin: '0' }}>Add to cart</h3>
