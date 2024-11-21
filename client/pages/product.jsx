@@ -5,6 +5,7 @@ import ProductRight from '../components/ProductRight/ProductRight'
 import { ProductContext } from '../context/useProductContext'
 import Navbar from '../components/Navbar'
 import styled from 'styled-components'
+import useGraphQLFetch from '../hooks/useGraphQLFetch'
 
 const MainContainer = styled.div`
     margin: 0 auto;
@@ -22,26 +23,20 @@ const ProductContainer = styled.div`
   }
 `
 
+const gqlQuery = '{ allProducts { id name power description price quantity brand weight height length colour img_url model_code} }'
+
 export default function Product() {
-  const [productData, setProductData] = useState()
   const [productQuantity, setProductQuantity] = useState(1)
   const [basketQuantity, setBasketQuantity] = useState(0)
+  const { data, loading, error } = useGraphQLFetch('http://localhost:3001/graphql', gqlQuery)
 
-  const fetchProductData = useCallback(async () => {
-    const response = await fetch('http://localhost:3001/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query: '{ allProducts { id name power description price quantity brand weight height length colour img_url model_code} }' })
-    })
-    const gqlRes = await response.json()
-    setProductData(gqlRes.data.allProducts)
-  }, [])
+  if (loading) {
+    return <p>Loading...</p>
+  }
 
-  useEffect(() => {
-    fetchProductData()
-  }, [fetchProductData])
+  if (error) {
+    return <p>Error fetching data</p>
+  }
 
   return (
     <ProductContext.Provider value={{
@@ -49,15 +44,14 @@ export default function Product() {
     }}>
       <Navbar />
       <MainContainer>
-        {productData && productData.length > 0 && (
+        {data && data.length > 0 && (
           <>
             <ProductContainer>
               <Section type={'primary'}>
-                <Image loader={() => productData[0].img_url} src={productData[0].img_url} height={500} width={500} style={{ borderRadius: '15px' }} />
+                <Image loader={() => data[0].img_url} src={data[0].img_url} height={500} width={500} style={{ borderRadius: '15px' }} />
               </Section>
-              <ProductRight productData={productData} productQuantity={productQuantity} />
+              <ProductRight productData={data} productQuantity={productQuantity} />
             </ProductContainer>
-
           </>
         )}
       </MainContainer>
