@@ -1,9 +1,11 @@
 import { StyledButton } from "./Button.styles"
 
-const Button = ({ text, onClick, disabled }) => {
+const Button = ({ width, height, onClick, disabled, children }) => {
     return (
         <div>
-            <StyledButton onClick={onClick} disabled={disabled}>{text}</StyledButton>
+            <StyledButton onClick={onClick} disabled={disabled} width={width} height={height}>
+                {children}
+            </StyledButton>
         </div>
     )
 }
