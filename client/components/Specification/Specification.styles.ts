@@ -10,6 +10,8 @@ export const SpecificationItemSide = styled.div`
 `
 
 export const SpecificationItemText = styled(ParagraphText)`
-    font-size: ${({ theme }) => theme.fontSizes.small};
-    line-height: 1;
+    &&{
+        font-size: ${({ theme }) => theme.fontSizes.xSmall};
+        line-height: 1;
+    }
 `

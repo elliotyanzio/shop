@@ -12,6 +12,7 @@ export const QuantityContainer = styled(PricingCounterContainer)`
 export const CenterContainer = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
 `
 
 export const QuantityLabelContainer = styled(CenterContainer)`

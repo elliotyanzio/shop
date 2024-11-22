@@ -5,8 +5,8 @@ module.exports = {
       name: "Energy saving light bulb",
       power: "25W",
       description:
-        "Available in 7 watts, 9 watts, 11 watts Spiral Light bulb in B22, bulb switches on instantly, no wait around warm start and flicker free features make for a great all purpose bulb",
-      price: 1299,
+        "Available in 7 watts, 9 watts, 11 watts Spiral Light bulb in B22, bulb switches on instantly, no wait around warm start and flicker free features make for a great all purpose bulb.",
+      price: 12.99,
       quantity: 4,
       brand: "Philips",
       weight: 77,

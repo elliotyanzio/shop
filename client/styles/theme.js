@@ -19,6 +19,7 @@ export const theme = {
         "32px"
     ],
     fontSizes: {
+        tiny: '10px',
         xSmall: '12px',
         small: '14px',
         regular: '16px',
@@ -27,9 +28,9 @@ export const theme = {
         title: '30px'
     },
     breakpoints: {
-        mobile: "320px",
+        mobile: "576px",
         tablet: "768px",
-        laptop: "1024px",
-        desktop: "2560px",
+        latop: "1024px",
+        desktop: "1440px",
     }
 }
