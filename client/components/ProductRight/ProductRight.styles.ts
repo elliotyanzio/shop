@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const ProductRightContainer = styled.div`
     @media screen and (min-width: 768px) {
-        width: 50%;
+        width: 66%;
     }
 `
 
 export const ParagraphText = styled.p`
-    font-size: ${({ theme }) => theme.fontSizes.regular};
+    font-size: ${({ theme }) => theme.fontSizes.small};
     margin: ${({ theme }) => `${theme.spacing[1]} 0`};
     line-height: 1.5;
     font-weight: 200;
@@ -16,6 +16,11 @@ export const ParagraphText = styled.p`
 export const GreyParagraphText = styled.p`
     font-size: ${({ theme }) => theme.fontSizes.regular};
     color: ${({ theme }) => theme.colors.grey};
+`
+
+export const TermsText = styled(GreyParagraphText)`
+    font-size: ${({ theme }) => theme.fontSizes.tiny};
+    line-height: 1.5;
 `
 
 export const SectionTitle = styled.h2`

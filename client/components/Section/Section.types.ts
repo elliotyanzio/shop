@@ -1,5 +1,5 @@
 export type SectionProps = {
-    type?: 'Primary' | 'Secondary';
+    type?: 'Primary' | 'Secondary' | 'Footer';
     children: JSX.Element;
 }
 

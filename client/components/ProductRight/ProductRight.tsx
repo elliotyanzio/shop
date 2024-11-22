@@ -1,7 +1,7 @@
 import Section from "../Section"
 import Specification from "../Specification"
 import { formatSpecifications } from './ProductRight.utils'
-import { GreyParagraphText, ParagraphText, SectionTitle, ProductTitle, SubTitleContainer, ProductRightContainer } from "./ProductRight.styles"
+import { GreyParagraphText, ParagraphText, SectionTitle, ProductTitle, SubTitleContainer, ProductRightContainer, TermsText } from "./ProductRight.styles"
 import ProductActions from "../ProductActions/ProductActions"
 import { FC } from "react"
 import { ProductRightProps } from "./ProductRight.types"
