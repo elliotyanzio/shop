@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import Specification from "./Specification";
 import { render } from "@testing-library/react";
 import { theme } from '../../styles/theme'
-import { FormattedSpecifications } from "../ProductRight/ProductRight.types";
+import { FormattedSpecifications } from "../ProductDetails/ProductDetails.types";
 
 export const mockSpecifications: FormattedSpecifications = [
     {

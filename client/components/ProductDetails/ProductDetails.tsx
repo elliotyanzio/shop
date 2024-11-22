@@ -1,14 +1,14 @@
 import Section from "../Section"
 import Specification from "../Specification"
-import { formatSpecifications } from './ProductRight.utils'
-import { GreyParagraphText, ParagraphText, SectionTitle, ProductTitle, SubTitleContainer, ProductRightContainer, TermsText } from "./ProductRight.styles"
+import { formatSpecifications } from './ProductDetails.utils'
+import { GreyParagraphText, ParagraphText, SectionTitle, ProductTitle, SubTitleContainer, ProductDetailsContainer, TermsText } from "./ProductDetails.styles"
 import ProductActions from "../ProductActions/ProductActions"
 import { FC } from "react"
-import { ProductRightProps } from "./ProductRight.types"
+import { ProductDetailsProps } from "./ProductDetails.types"
 
-const ProductRight: FC<ProductRightProps> = ({ productData }): JSX.Element => {
+const ProductDetails: FC<ProductDetailsProps> = ({ productData }): JSX.Element => {
     return (
-        <ProductRightContainer>
+        <ProductDetailsContainer>
             <Section>
                 <>
                     <ProductTitle>{productData[0].name}</ProductTitle>
@@ -31,8 +31,8 @@ const ProductRight: FC<ProductRightProps> = ({ productData }): JSX.Element => {
                     <Specification specificationArr={formatSpecifications(productData[0])} />
                 </>
             </Section>
-        </ProductRightContainer>
+        </ProductDetailsContainer>
     )
 }
 
-export default ProductRight
+export default ProductDetails

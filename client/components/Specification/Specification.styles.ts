@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ParagraphText } from "../ProductRight/ProductRight.styles";
+import { ParagraphText } from "../ProductDetails/ProductDetails.styles";
 
 export const SpecificationItemContainer = styled.div`
     display: flex;

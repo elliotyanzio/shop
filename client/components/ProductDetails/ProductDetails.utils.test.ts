@@ -1,4 +1,4 @@
-import { formatSpecifications } from "./ProductRight.utils";
+import { formatSpecifications } from "./ProductDetails.utils";
 import { mockProducts } from '../../test/product.test';
 
 const expectedSpecifications = [
