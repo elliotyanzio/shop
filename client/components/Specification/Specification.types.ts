@@ -1,4 +1,4 @@
-import { FormattedSpecification, FormattedSpecifications } from "../ProductRight/ProductRight.types";
+import { FormattedSpecification, FormattedSpecifications } from "../ProductDetails/ProductDetails.types";
 
 export type SpecificationProps = {
     specificationArr: FormattedSpecifications

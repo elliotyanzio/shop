@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import Image from 'next/image'
 import Section from '../components/Section'
-import ProductRight from '../components/ProductRight/ProductRight'
+import ProductDetails from '../components/ProductDetails'
 import { ProductContext } from '../hooks/useProductContext/useProductContext'
 import Navbar from '../components/Navbar'
 import styled from 'styled-components'
 import useGraphQLFetch from '../hooks/useGraphQLFetch'
-import { TermsText } from '../components/ProductRight/ProductRight.styles'
+import { TermsText } from '../components/ProductDetails/ProductDetails.styles'
+import ProductImage from '../components/ProductImage'
 
 const MainContainer = styled.div`
     margin: 0 auto;
@@ -24,12 +24,6 @@ const ProductContainer = styled.div`
   }
 `
 
-const ProductImageContainer = styled.div`
-  @media screen and (max-width: 768px) {
-    text-align: center;
-  }
-`
-
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,8 +32,8 @@ const LayoutContainer = styled.div`
 const gqlQuery = '{ allProducts { id name power description price quantity brand weight height length colour img_url model_code} }'
 
 export default function Product() {
-  const [productQuantity, setProductQuantity] = useState(1)
-  const [basketQuantity, setBasketQuantity] = useState(0)
+  const [productQuantity, setProductQuantity] = useState<number>(1)
+  const [basketQuantity, setBasketQuantity] = useState<number>(0)
   const { data, loading, error } = useGraphQLFetch('http://localhost:3001/graphql', gqlQuery)
 
   if (loading) {
@@ -58,16 +52,10 @@ export default function Product() {
         <Navbar />
         <MainContainer>
           {data && data.length > 0 && (
-            <>
-              <ProductContainer>
-                <Section>
-                  <ProductImageContainer>
-                    <Image loader={() => data[0].img_url} unoptimized={true} src={data[0].img_url} height={500} width={500} style={{ borderRadius: '15px' }} />
-                  </ProductImageContainer>
-                </Section>
-                <ProductRight productData={data} productQuantity={productQuantity} />
-              </ProductContainer>
-            </>
+            <ProductContainer>
+              <ProductImage productData={data} />
+              <ProductDetails productData={data} />
+            </ProductContainer>
           )}
         </MainContainer>
         <Section type={'Footer'}>

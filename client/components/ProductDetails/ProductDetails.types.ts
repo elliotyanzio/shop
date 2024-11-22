@@ -1,6 +1,6 @@
 import { AllProducts } from "../../hooks/useGraphQLFetch/types"
 
-export type ProductRightProps = {
+export type ProductDetailsProps = {
     productData: AllProducts
 }
 

@@ -33,7 +33,7 @@ describe('Product component tests', () => {
           data: mockProducts
         }),
       })
-    );
+    ) as jest.Mock;
   })
 
   test("should be able to increase and decrease product quantity", async () => {

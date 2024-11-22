@@ -1,5 +1,5 @@
 import { Product } from "../../hooks/useGraphQLFetch/types";
-import { FormattedSpecifications } from "./ProductRight.types";
+import { FormattedSpecifications } from "./ProductDetails.types";
 
 export const formatSpecifications = (productData: Product): FormattedSpecifications => ([
     {
