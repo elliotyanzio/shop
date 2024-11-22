@@ -12,7 +12,7 @@ export const formatSpecifications = (productData: Product): FormattedSpecificati
     },
     {
         title: 'Dimension (cm)',
-        value: `${productData.height} x ${productData.length}`
+        value: `${productData.height} x ${productData.length} x ${productData.width}`
     },
     {
         title: 'Item Model number',
