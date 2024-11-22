@@ -1,11 +1,12 @@
-import { useContext } from "react"
-import { ProductContext } from "../../context/useProductContext"
+import { FC } from "react"
+import useProductContext from "../../hooks/useProductContext"
 import Button from '../Button'
 import ProductCounter from "../ProductCounter/ProductCounter"
 import { LargeText, PricingContainer } from './ProductActions.styles'
+import { ProductActionsProps } from './ProductActions.types'
 
-const ProductActions = ({ productData }) => {
-    const { setBasketQuantity, productQuantity } = useContext(ProductContext)
+const ProductActions: FC<ProductActionsProps> = ({ productData }): JSX.Element => {
+    const { setBasketQuantity, productQuantity } = useProductContext()
 
     return (
         <>
