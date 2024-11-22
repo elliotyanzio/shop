@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { ButtonStyleProps } from './Button.types';
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<ButtonStyleProps>`
     background-color: ${({ theme }) => theme.colors.sohoLights};
     color: ${({ theme }) => theme.colors.siphon};
     width: auto;

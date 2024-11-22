@@ -1,12 +1,13 @@
-import { useContext } from 'react'
+import { FC } from 'react'
 import Button from '../Button'
-import { ProductContext } from '../../context/useProductContext'
+import useProductContext from '../../hooks/useProductContext'
 import { LargeText } from '../ProductActions/ProductActions.styles'
 import { QuantityContainer, PricingCounterContainer, QuantityLabel, QuantityLabelContainer, CenterContainer } from './ProductCounter.styles'
+import { ProductCounterProps } from './ProductCounter.types'
 
-const ProductCounter = ({ productData }) => {
+const ProductCounter: FC<ProductCounterProps> = ({ productData }): JSX.Element => {
     //TODO: Change theses to props - so it can be reusable
-    const { productQuantity, setProductQuantity } = useContext(ProductContext)
+    const { productQuantity, setProductQuantity } = useProductContext()
     return (
         <>
             <PricingCounterContainer>
@@ -18,7 +19,7 @@ const ProductCounter = ({ productData }) => {
                         onClick={() => setProductQuantity((prev) => prev - 1)}
                         disabled={productQuantity <= 1}
                     >
-                        -
+                        <p>-</p>
                     </Button>
                     <QuantityContainer>
                         <LargeText title={'Current quantity'}>{productQuantity}</LargeText>
@@ -27,7 +28,7 @@ const ProductCounter = ({ productData }) => {
                         onClick={() => setProductQuantity((prev) => prev + 1)}
                         disabled={productQuantity === productData.quantity}
                     >
-                        +
+                        <p>+</p>
                     </Button>
                 </CenterContainer>
             </PricingCounterContainer>

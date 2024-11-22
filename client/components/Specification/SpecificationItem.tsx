@@ -1,6 +1,8 @@
+import { FC } from "react"
 import { SpecificationItemContainer, SpecificationItemSide, SpecificationItemText } from "./Specification.styles"
+import { SpecificationItemProps } from "./Specification.types"
 
-const SpecificationItem = ({ specificationItem }) => {
+const SpecificationItem: FC<SpecificationItemProps> = ({ specificationItem }): JSX.Element => {
     return (
         <SpecificationItemContainer>
             <SpecificationItemSide>
