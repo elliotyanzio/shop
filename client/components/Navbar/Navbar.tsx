@@ -12,7 +12,7 @@ const Navbar: FC = (): JSX.Element => {
         <NavbarContainer>
             <Image src={OCTOPUS_LOGO} height={45} width={150} />
             <BasketContainer>
-                <Image src={BASKET_IMAGE} height={30} width={30} style={{ position: "relative" }} />
+                <Image src={BASKET_IMAGE} height={30} width={30} />
                 {basketQuantity > 0 && (
                     <BasketQuantity title="Basket items">
                         <BasketQuantityText style={{ fontSize: '12px' }}>{basketQuantity}</BasketQuantityText>

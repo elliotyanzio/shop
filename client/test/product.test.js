@@ -4,10 +4,10 @@ import React from 'react'
 import { ThemeProvider } from "styled-components";
 import { theme } from "../styles/theme";
 
-const mockProducts = {
+export const mockProducts = {
   "allProducts": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Energy saving light bulb",
       "power": "25W",
       "description": "Available in 7 watts, 9 watts, 11 watts Spiral Light bulb in B22, bulb switches on instantly, no wait around warm start and flicker free features make for a great all purpose bulb",
@@ -16,6 +16,7 @@ const mockProducts = {
       "brand": "Philips",
       "weight": 77,
       "height": 12.6,
+      "width": 6.2,
       "length": 6.2,
       "colour": "Cool daylight",
       "img_url": "https://i.ibb.co/2nzwxnQ/bulb.png",

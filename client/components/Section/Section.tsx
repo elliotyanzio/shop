@@ -4,7 +4,7 @@ import { SectionProps } from "./Section.types"
 
 const Section: FC<SectionProps> = ({ type = 'Primary', children }): JSX.Element => {
     return (
-        <SectionContainer type={type}>
+        <SectionContainer type={type} data-testid={'section-container'}>
             {children}
         </SectionContainer>
     )

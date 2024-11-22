@@ -62,7 +62,7 @@ export default function Product() {
               <ProductContainer>
                 <Section>
                   <ProductImageContainer>
-                    <Image loader={() => data[0].img_url} src={data[0].img_url} height={500} width={500} style={{ borderRadius: '15px' }} />
+                    <Image loader={() => data[0].img_url} unoptimized={true} src={data[0].img_url} height={500} width={500} style={{ borderRadius: '15px' }} />
                   </ProductImageContainer>
                 </Section>
                 <ProductRight productData={data} productQuantity={productQuantity} />
