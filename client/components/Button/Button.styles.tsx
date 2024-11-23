@@ -22,4 +22,6 @@ export const StyledButton = styled.button<ButtonStyleProps>`
         box-shadow: none;
        ;
     }
+    &:active {
+        transform: scale(0.98);
 `
