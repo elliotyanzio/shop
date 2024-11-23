@@ -26,11 +26,5 @@ export const theme = {
         large: '20px',
         subTitle: '24px',
         title: '30px'
-    },
-    breakpoints: {
-        mobile: "576px",
-        tablet: "768px",
-        latop: "1024px",
-        desktop: "1440px",
     }
 }
