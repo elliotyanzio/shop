@@ -1,13 +1,10 @@
 import { FC } from 'react'
 import Button from '../Button'
-import useProductContext from '../../hooks/useProductContext'
 import { LargeText } from '../ProductActions/ProductActions.styles'
 import { QuantityContainer, PricingCounterContainer, QuantityLabel, QuantityLabelContainer, CenterContainer } from './ProductCounter.styles'
 import { ProductCounterProps } from './ProductCounter.types'
 
-const ProductCounter: FC<ProductCounterProps> = ({ productData }): JSX.Element => {
-    //TODO: Change theses to props - so it can be reusable
-    const { productQuantity, setProductQuantity } = useProductContext()
+const ProductCounter: FC<ProductCounterProps> = ({ productStock, productQuantity, incrementFn, decrementFn, }): JSX.Element => {
     return (
         <>
             <PricingCounterContainer>
@@ -16,7 +13,7 @@ const ProductCounter: FC<ProductCounterProps> = ({ productData }): JSX.Element =
                 </QuantityLabelContainer>
                 <CenterContainer>
                     <Button
-                        onClick={() => setProductQuantity((prev) => prev - 1)}
+                        onClick={decrementFn}
                         disabled={productQuantity <= 1}
                     >
                         <p>-</p>
@@ -25,8 +22,8 @@ const ProductCounter: FC<ProductCounterProps> = ({ productData }): JSX.Element =
                         <LargeText title={'Current quantity'}>{productQuantity}</LargeText>
                     </QuantityContainer>
                     <Button
-                        onClick={() => setProductQuantity((prev) => prev + 1)}
-                        disabled={productQuantity === productData.quantity}
+                        onClick={incrementFn}
+                        disabled={productQuantity === productStock}
                     >
                         <p>+</p>
                     </Button>

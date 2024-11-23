@@ -1,5 +1,6 @@
-import { Product } from "../../hooks/useGraphQLFetch/types"
-
 export type ProductCounterProps = {
-    productData: Product
+    productStock: number,
+    productQuantity: number,
+    incrementFn: () => void,
+    decrementFn: () => void
 }

@@ -7,35 +7,15 @@ import styled from 'styled-components'
 import useGraphQLFetch from '../hooks/useGraphQLFetch'
 import { TermsText } from '../components/ProductDetails/ProductDetails.styles'
 import ProductImage from '../components/ProductImage'
-import { AllProducts, Product } from '../hooks/useGraphQLFetch/types'
+import { Product as ProductResponse } from '../hooks/useGraphQLFetch/types'
+import { MainContainer, LayoutContainer, ProductContainer } from '../styles/ProductPage.styles'
 
-const MainContainer = styled.div`
-    margin: 0 auto;
-    max-width: 80%;
-    flex: 1;
-  
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
-  }
-`
-
-const ProductContainer = styled.div`
-  @media screen and (min-width: 768px) {
-    display: flex;
-  }
-`
-
-const LayoutContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`
 const gqlQuery = '{ allProducts { id name power description price quantity brand weight height width length colour img_url model_code} }'
 
 export default function Product() {
   const [productQuantity, setProductQuantity] = useState<number>(1)
   const [basketQuantity, setBasketQuantity] = useState<number>(0)
-  const { data, loading, error } = useGraphQLFetch<Product>('http://localhost:3001/graphql', gqlQuery)
+  const { data, loading, error } = useGraphQLFetch<ProductResponse>('http://localhost:3001/graphql', gqlQuery)
 
   if (loading) {
     return <p>Loading...</p>

@@ -6,13 +6,21 @@ import { LargeText, PricingContainer } from './ProductActions.styles'
 import { ProductActionsProps } from './ProductActions.types'
 
 const ProductActions: FC<ProductActionsProps> = ({ productData }): JSX.Element => {
-    const { setBasketQuantity, productQuantity } = useProductContext()
+    const { setBasketQuantity, productQuantity, setProductQuantity } = useProductContext()
+
+    const incrementProduct = () => setProductQuantity((prev) => prev + 1)
+    const decrementProduct = () => setProductQuantity((prev) => prev - 1)
 
     return (
         <>
             <PricingContainer>
                 <LargeText>£{productData.price}</LargeText>
-                <ProductCounter productData={productData} />
+                <ProductCounter
+                    productStock={productData.quantity}
+                    incrementFn={incrementProduct}
+                    decrementFn={decrementProduct}
+                    productQuantity={productQuantity}
+                />
             </PricingContainer>
             <Button
                 width={'100%'}
