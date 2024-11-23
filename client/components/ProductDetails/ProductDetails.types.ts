@@ -1,7 +1,7 @@
-import { AllProducts } from "../../hooks/useGraphQLFetch/types"
+import { Product } from "../../hooks/useGraphQLFetch/types"
 
 export type ProductDetailsProps = {
-    productData: AllProducts
+    productData: Product
 }
 
 export type FormattedSpecification = {
