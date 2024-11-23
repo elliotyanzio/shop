@@ -17,4 +17,4 @@ export type Product = {
 
 export type AllProducts = Product[]
 
-export type UseGraphQLFetchResponse = { data: AllProducts, loading: boolean, error: boolean }
+export type UseGraphQLFetchResponse<T> = { data: T | null, loading: boolean, error: boolean }

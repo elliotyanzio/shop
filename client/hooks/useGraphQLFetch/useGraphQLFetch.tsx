@@ -1,9 +1,9 @@
 import { useEffect, useState, useCallback } from 'react'
-import { AllProducts, UseGraphQLFetchResponse } from './types'
+import { UseGraphQLFetchResponse } from './types'
 
 
-const useGraphQLFetch = (url: string, query: string): UseGraphQLFetchResponse => {
-    const [data, setData] = useState<AllProducts>([])
+const useGraphQLFetch = <T,>(url: string, query: string): UseGraphQLFetchResponse<T> => {
+    const [data, setData] = useState<T | null>(null)
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<boolean>(false)
 
@@ -18,7 +18,7 @@ const useGraphQLFetch = (url: string, query: string): UseGraphQLFetchResponse =>
                 body: JSON.stringify({ query })
             })
             const gqlRes = await response.json()
-            setData(gqlRes.data.allProducts)
+            setData(gqlRes.data.allProducts[0])
         }
         catch (e) {
             setError(true)

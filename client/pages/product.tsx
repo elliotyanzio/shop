@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import useGraphQLFetch from '../hooks/useGraphQLFetch'
 import { TermsText } from '../components/ProductDetails/ProductDetails.styles'
 import ProductImage from '../components/ProductImage'
+import { AllProducts, Product } from '../hooks/useGraphQLFetch/types'
 
 const MainContainer = styled.div`
     margin: 0 auto;
@@ -29,12 +30,12 @@ const LayoutContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
 `
-const gqlQuery = '{ allProducts { id name power description price quantity brand weight height length colour img_url model_code} }'
+const gqlQuery = '{ allProducts { id name power description price quantity brand weight height width length colour img_url model_code} }'
 
 export default function Product() {
   const [productQuantity, setProductQuantity] = useState<number>(1)
   const [basketQuantity, setBasketQuantity] = useState<number>(0)
-  const { data, loading, error } = useGraphQLFetch('http://localhost:3001/graphql', gqlQuery)
+  const { data, loading, error } = useGraphQLFetch<Product>('http://localhost:3001/graphql', gqlQuery)
 
   if (loading) {
     return <p>Loading...</p>
@@ -51,7 +52,7 @@ export default function Product() {
       <LayoutContainer>
         <Navbar />
         <MainContainer>
-          {data && data.length > 0 && (
+          {data && (
             <ProductContainer>
               <ProductImage productData={data} />
               <ProductDetails productData={data} />
